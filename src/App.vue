@@ -1,30 +1,38 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div class="app">
+    <NavBar />
+    <div class="app-content">
+      <RouterView />
+    </div>
   </div>
-  <router-view />
 </template>
 
+<script lang="ts">
+import { Options, Vue } from 'vue-class-component';
+import { NavBar } from '@/components';
+
+@Options({
+  components: {
+    NavBar,
+  },
+})
+export default class App extends Vue {}
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.app {
+  @apply grid;
+  @apply bg-secondary-100;
+  @apply h-screen;
+
+  grid-template-columns: theme('navbar.size') 1fr;
 }
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.app-content {
+  @apply overflow-auto;
 }
 </style>
