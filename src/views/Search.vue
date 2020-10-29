@@ -1,5 +1,5 @@
 <template>
-  <Page>
+  <Page navigation="right">
     <Sheet class="p-16">
       <img alt="Vue logo" src="../assets/logo.png" />
     </Sheet>
@@ -16,5 +16,5 @@ import { Page, Sheet } from '@/components';
     Sheet,
   },
 })
-export default class Home extends Vue {}
+export default class Search extends Vue {}
 </script>
