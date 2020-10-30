@@ -1,5 +1,9 @@
 const path = require('path');
 const sveltePreprocess = require('svelte-preprocess');
+const postcssNested = require('postcss-nested');
+const postcssImport = require('postcss-import');
+const tailwindcss = require('tailwindcss');
+const autoprefixer = require('autoprefixer');
 const env = require('../env');
 
 const paths = module.exports.paths = {
@@ -51,7 +55,14 @@ module.exports.typescriptLoader = function(babelOptions = {}, typescriptOptions 
 };
 
 const preprocess = sveltePreprocess({
-
+	postcss: {
+		plugins: [
+			postcssImport(),
+			postcssNested(),
+			tailwindcss(paths.tailwindConfig),
+			autoprefixer(),
+		]
+	}
 });
 
 module.exports.svelteLoader = function(options) {

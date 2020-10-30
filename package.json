@@ -10,8 +10,8 @@
     "start": "node __sapper__/build",
     "validate": "svelte-check --ignore src/node_modules/@sapper",
     "format": "yarn prettier --write && yarn lint --fix",
-    "prettier": "prettier --config config/lint/.prettierrc src/**/*.{js,ts,svelte}",
-    "lint": "eslint --config config/lint/.eslintrc.json src/**/*.{js,ts,svelte}"
+    "prettier": "prettier --config config/lint/.prettierrc src/**/*.{ts,svelte}",
+    "lint": "eslint --config config/lint/.eslintrc.json src/**/*.ts"
   },
   "dependencies": {
     "compression": "^1.7.1",
@@ -29,11 +29,15 @@
     "@types/polka": "^0.5.1",
     "@typescript-eslint/eslint-plugin": "^4.6.0",
     "@typescript-eslint/parser": "^4.6.0",
+    "autoprefixer": "^10.0.1",
     "babel-loader": "^8.1.0",
     "eslint": "^6.0.0",
     "eslint-plugin-svelte3": "^2.7.3",
     "file-loader": "^6.0.0",
     "lint-staged": "^10.5.0",
+    "postcss": "^8.1.4",
+    "postcss-import": "^13.0.0",
+    "postcss-nested": "^5.0.1",
     "prettier": "^2.1.2",
     "prettier-plugin-svelte": "^1.4.1",
     "sapper": "^0.28.0",
@@ -55,7 +59,7 @@
     "commit-msg": "commitlint --config config/lint/commitlint.js -e -V"
   },
   "lint-staged": {
-    "src/*.{js,jsx,svelte,ts,tsx}": [
+    "src/*.{ts,svelte}": [
       "yarn format"
     ]
   }
