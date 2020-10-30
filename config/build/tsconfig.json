@@ -1,12 +1,16 @@
 {
   "extends": "@tsconfig/svelte/tsconfig.json",
   "context": "../..",
+  "baseUrl": "../..",
   "compilerOptions": {
     "lib": [
       "DOM",
       "ES2017",
       "WebWorker"
-    ]
+    ],
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "include": [
     "src/**/*",
