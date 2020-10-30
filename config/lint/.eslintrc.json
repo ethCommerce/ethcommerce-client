@@ -1,0 +1,15 @@
+{
+	"extends": [
+		"eslint:recommended",
+		".eslintrc.base.json"
+	],
+	"plugins":  [
+		"svelte3"
+	],
+	"overrides": [
+		{
+			"files": ["*.svelte"],
+			"processor": "svelte3/svelte3"
+		}
+	]
+}

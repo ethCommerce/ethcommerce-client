@@ -8,7 +8,10 @@
     "build": "sapper build",
     "export": "sapper export",
     "start": "node __sapper__/build",
-    "validate": "svelte-check --ignore src/node_modules/@sapper"
+    "validate": "svelte-check --ignore src/node_modules/@sapper",
+    "format": "yarn prettier --write && yarn lint --fix",
+    "prettier": "prettier --config config/lint/.prettierrc src/**/*.{js,ts,svelte}",
+    "lint": "eslint --config config/lint/.eslintrc.json src/**/*.{js,ts,svelte}"
   },
   "dependencies": {
     "compression": "^1.7.1",
@@ -24,8 +27,15 @@
     "@types/compression": "^1.7.0",
     "@types/node": "^14.11.1",
     "@types/polka": "^0.5.1",
+    "@typescript-eslint/eslint-plugin": "^4.6.0",
+    "@typescript-eslint/parser": "^4.6.0",
     "babel-loader": "^8.1.0",
+    "eslint": "^6.0.0",
+    "eslint-plugin-svelte3": "^2.7.3",
     "file-loader": "^6.0.0",
+    "lint-staged": "^10.5.0",
+    "prettier": "^2.1.2",
+    "prettier-plugin-svelte": "^1.4.1",
     "sapper": "^0.28.0",
     "svelte": "^3.17.3",
     "svelte-check": "^1.0.46",
@@ -41,6 +51,12 @@
     "yorkie": "^2.0.0"
   },
   "gitHooks": {
-    "commit-msg": "commitlint --config config/commitlint.js --env HUSKY_GIT_PARAMS"
+    "pre-commit": "lint-staged",
+    "commit-msg": "commitlint --config config/lint/commitlint.js -e -V"
+  },
+  "lint-staged": {
+    "src/*.{js,jsx,svelte,ts,tsx}": [
+      "yarn format"
+    ]
   }
 }
