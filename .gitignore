@@ -3,3 +3,18 @@
 /src/node_modules/@sapper/
 yarn-error.log
 /__sapper__/
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
