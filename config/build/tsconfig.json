@@ -1,21 +1,27 @@
 {
   "extends": "@tsconfig/svelte/tsconfig.json",
-  "context": "../..",
+
   "compilerOptions": {
     "baseUrl": "../..",
+
     "lib": [
-      "DOM",
-      "ES2017",
-      "WebWorker"
+      "dom",
+      "es2017",
+      "webworker"
     ],
+
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@config/*": ["config/*"]
     }
   },
+
   "include": [
     "src/**/*",
-    "src/node_modules/**/*"
+    "src/node_modules/**/*",
+    "config/env/**/*"
   ],
+
   "exclude": [
     "node_modules/*",
     "__sapper__/*",

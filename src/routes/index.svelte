@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Page, Sheet } from "@/components";
+  import { Page, Sheet } from '@/components';
 </script>
 
 <Page>

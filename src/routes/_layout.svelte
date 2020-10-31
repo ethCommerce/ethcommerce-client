@@ -1,5 +1,5 @@
 <style global>
-  @import "../theme/index.css";
+  @import '../theme/index.css';
 </style>
 
 <main>

@@ -9,12 +9,19 @@
     "export": "sapper export",
     "start": "node __sapper__/build",
     "validate": "svelte-check --ignore src/node_modules/@sapper",
-    "format": "yarn prettier --write && yarn lint --fix",
-    "prettier": "prettier --config config/lint/.prettierrc src/**/*.{ts,svelte}",
-    "lint": "eslint --config config/lint/.eslintrc.json src/**/*.ts"
+    "format": "prettier --config config/lint/.prettierrc 'src/**/*.{ts,svelte}'",
+    "lint": "eslint --config config/lint/.eslintrc.js 'src/**/*.ts'",
+    "mocha:run": "mochapack --require jsdom-global/register --webpack-config config/test/webpack.config.js 'test/unit/**/*.spec.ts'",
+    "cypress:open": "cypress open --config-file config/test/cypress.json",
+    "cypress:run": "cypress run --config-file config/test/cypress.json",
+    "test": "yarn test:unit && yarn test:e2e",
+    "test:e2e": "run-p --race dev cypress:run",
+    "test:unit": "yarn mocha:run"
   },
   "dependencies": {
+    "@testing-library/svelte": "^3.0.0",
     "compression": "^1.7.1",
+    "mocha": "^8.2.0",
     "polka": "next",
     "sirv": "^1.0.0"
   },
@@ -23,18 +30,27 @@
     "@babel/preset-env": "^7.12.1",
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
+    "@cypress/webpack-preprocessor": "^5.4.10",
     "@tsconfig/svelte": "^1.0.10",
+    "@types/chai": "^4.2.14",
     "@types/compression": "^1.7.0",
+    "@types/mocha": "^8.0.3",
     "@types/node": "^14.11.1",
     "@types/polka": "^0.5.1",
     "@typescript-eslint/eslint-plugin": "^4.6.0",
     "@typescript-eslint/parser": "^4.6.0",
     "autoprefixer": "^10.0.1",
     "babel-loader": "^8.1.0",
+    "chai": "^4.2.0",
+    "cypress": "^5.5.0",
     "eslint": "^6.0.0",
     "eslint-plugin-svelte3": "^2.7.3",
     "file-loader": "^6.0.0",
+    "jsdom": "^16.4.0",
+    "jsdom-global": "^3.0.2",
     "lint-staged": "^10.5.0",
+    "mochapack": "^2.0.6",
+    "npm-run-all": "^4.1.5",
     "postcss": "^8.1.4",
     "postcss-import": "^13.0.0",
     "postcss-nested": "^5.0.1",
@@ -55,12 +71,13 @@
     "yorkie": "^2.0.0"
   },
   "gitHooks": {
-    "pre-commit": "lint-staged",
+    "pre-commit": "lint-staged && yarn test",
     "commit-msg": "commitlint --config config/lint/commitlint.js -e -V"
   },
   "lint-staged": {
-    "src/*.{ts,svelte}": [
-      "yarn format"
+    "{src,test}/**/*.ts": [
+      "yarn format --write",
+      "yarn lint --fix"
     ]
   }
 }

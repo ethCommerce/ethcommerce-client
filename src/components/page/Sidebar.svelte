@@ -1,20 +1,19 @@
 <script lang="ts">
-  import { Button } from "@/components";
+  import { Button } from '@/components';
 </script>
 
 <style>
   .sidebar {
-
-      &__content {
-          @apply flex flex-col;
-          @apply h-screen;
-          @apply bg-primary-900;
-          @apply text-secondary-100;
-      }
+    &__content {
+      @apply flex flex-col;
+      @apply h-screen;
+      @apply bg-primary-900;
+      @apply text-secondary-100;
+    }
 
     :global(.sidebar__item) {
-      flex: 0 0 theme("sidebar.size");
-      width: theme("sidebar.size");
+      flex: 0 0 theme('sidebar.size');
+      width: theme('sidebar.size');
     }
   }
 </style>
@@ -31,6 +30,6 @@
   </div>
 
   <div class="sidebar__expand">
-    <slot name="expand"/>
+    <slot name="expand" />
   </div>
 </div>

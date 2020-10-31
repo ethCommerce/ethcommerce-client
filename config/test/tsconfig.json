@@ -1,0 +1,19 @@
+{
+  "extends": "./config/build/tsconfig.json",
+
+  "compilerOptions": {
+    "baseUrl": "../..",
+    
+    "types": [
+      "mocha",
+      "svelte"
+    ]
+  },
+
+  "include": [
+    "src/**/*",
+    "src/node_modules/**/*",
+    "config/env/**/*",
+    "test/**/*"
+  ]
+}

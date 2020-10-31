@@ -1,7 +1,7 @@
 <script lang="ts">
   export let href: string | undefined;
-  export let type: string = "button";
-  let className: string = "";
+  export let type: string = 'button';
+  let className: string = '';
   export { className as class };
 
   const role = 'button';
@@ -26,8 +26,7 @@
     {role}
     on:click
     on:mouseenter
-    on:mouseleave
-  >
+    on:mouseleave>
     <slot />
   </a>
 {:else}
