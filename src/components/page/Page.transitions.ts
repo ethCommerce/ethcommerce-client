@@ -1,4 +1,4 @@
-import { crossfade, fade } from "svelte/transition";
+import { crossfade, fade } from 'svelte/transition';
 
 export const [sendPage, receivePage] = crossfade({
   duration: (d) => Math.sqrt(d * 400),

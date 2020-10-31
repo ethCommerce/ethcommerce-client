@@ -3,7 +3,10 @@ const NODE_ENV = process.env.NODE_ENV || 'production';
 const envs = {
 	default: {
 		ENV: NODE_ENV,
-		DEBUG: false,
+		DEBUG: process.env.DEBUG || false,
+		PROTOCOL: process.env.PROTOCOL || 'http',
+		HOST: process.env.HOST || 'localhost',
+		PORT: process.env.PORT || 3000,
 	},
 	development: require('./development'),
 	production: require('./production'),

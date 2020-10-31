@@ -1,3 +1,6 @@
 {
-  "DEBUG": "log,warn"
+  "DEBUG": "log,warn",
+  "PROTOCOL": "http",
+  "HOST": "localhost",
+  "PORT": 3000
 }

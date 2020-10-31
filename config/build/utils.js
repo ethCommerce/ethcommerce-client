@@ -35,7 +35,7 @@ const typescript = {
 	configFile: paths.tsConfig,
 };
 
-module.exports.typescriptLoader = function(babelOptions = {}, typescriptOptions = {}) {
+module.exports.typescriptLoader = function(typescriptOptions = {}, babelOptions = {}) {
 	return {
 		test: /\.ts$/,
 		use: [{

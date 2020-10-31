@@ -6,6 +6,7 @@ const env = require('../../env');
 const alias = {
 	'svelte': path.resolve('node_modules', 'svelte'),
 	'@': path.resolve('src'),
+	'@config': path.resolve('config'),
 };
 
 const extensions = ['.ts', '.tsx', '.mjs', '.js', '.json', '.svelte', '.html'];
