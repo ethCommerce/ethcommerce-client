@@ -1,3 +1,6 @@
+<script lang="ts" context="module">
+</script>
+
 <script lang="ts">
   import Sidebar from './Sidebar.svelte';
   import {
@@ -5,7 +8,7 @@
     receiveSidebar,
     sendPage,
     sendSidebar,
-  } from './Page.transitions';
+  } from './transitions';
 
   export let sidebar = 'left';
 </script>

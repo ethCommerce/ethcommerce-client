@@ -4,6 +4,9 @@
   "compilerOptions": {
     "baseUrl": "../..",
 
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+
     "lib": [
       "dom",
       "es2017",

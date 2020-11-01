@@ -58,8 +58,8 @@ const preprocess = sveltePreprocess({
 	postcss: {
 		plugins: [
 			postcssImport(),
-			postcssNested(),
 			tailwindcss(paths.tailwindConfig),
+			postcssNested(),
 			autoprefixer(),
 		]
 	}

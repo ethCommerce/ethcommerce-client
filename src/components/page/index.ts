@@ -1,4 +1,7 @@
-export * from './Page.transitions';
+export * from './transitions';
+
+export * as store from './store';
+
 import Page from './Page.svelte';
 export { Page };
 

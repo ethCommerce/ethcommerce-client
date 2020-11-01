@@ -1,5 +1,7 @@
 <script lang="ts">
-  let className = '';
+  export let id: string | undefined;
+
+  let className: string = '';
   export { className as class };
 </script>
 
@@ -8,6 +10,6 @@
   }
 </style>
 
-<div class={`sheet ${className}`}>
+<div {id} class={`sheet ${className}`}>
   <slot />
 </div>

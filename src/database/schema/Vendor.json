@@ -1,0 +1,15 @@
+{
+  "title": "Vendor schema",
+  "version": 0,
+  "description": "Describes a vendor",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "primary": true
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

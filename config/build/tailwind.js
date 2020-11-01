@@ -17,6 +17,7 @@ module.exports = {
 		'display',
     'flex',
     'flexDirection',
+    'fontSize',
     'gridTemplateColumns',
     'gridTemplateRows',
     'inset',
@@ -45,6 +46,7 @@ module.exports = {
       },
       flex: {
         fill: '1 1 100%',
+        static: '0 0 auto',
       },
       inset: {
         '100': '100%',
