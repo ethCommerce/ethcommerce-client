@@ -9,9 +9,7 @@ export interface SearchResult {
 export async function search(): Promise<BehaviorSubject<SearchResult[]>> {
   const vendors = await collection('vendors');
 
-  const query = vendors.find().where({
-    title: {},
-  });
-
+  const query = vendors.find().where('description').regex(/Description 1/)
+  
   return query.$;
 }
